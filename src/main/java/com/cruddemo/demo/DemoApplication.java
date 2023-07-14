@@ -22,8 +22,37 @@ public class DemoApplication {
 			System.out.println("Hello World");
 //			createStudent(studentDAO);
 
-			createMultipleStudent(studentDAO);
+//			createMultipleStudent(studentDAO);
+
+			readStudent(studentDAO);
+
+
 		};
+	}
+
+	private void readStudent(StudentDAO studentDAO) {
+		// create a student object
+		System.out.println("Creating a new student");
+		Student tempStudent= new Student(
+				"RajKumar",
+				"Pokhrel",
+				"RajkumarPokhrel@gmail.com"
+		);
+
+		// save the student
+		System.out.println("Saving the student");
+		studentDAO.save(tempStudent);
+
+		// display id of the saved student
+		int theId = tempStudent.getId();
+		System.out.println("Saved student. Generated id:"+theId);
+
+		// retrieve student based on the id:primary key
+		System.out.println("Retrieving student with id"+theId);
+		Student myStudent = studentDAO.findById(theId);
+
+		// display student
+		System.out.println("Found the student:"+myStudent);
 	}
 
 	private void createStudent(StudentDAO studentDAO){
@@ -47,6 +76,7 @@ public class DemoApplication {
 		System.out.println("Saveed student. Generate id:" + tempStudent.getId());
 
 	}
+
 	private void createMultipleStudent(StudentDAO studentDAO){
 
 		// create the student object
@@ -78,7 +108,6 @@ public class DemoApplication {
 		studentDAO.save(tempStudent1);
 		studentDAO.save(tempStudent3);
 		studentDAO.save(tempStudent3);
-
 
 
 		//display id of the saved student
