@@ -28,10 +28,27 @@ public class DemoApplication {
 
 //			readStudent(studentDAO);
 
-			queryForStudent(studentDAO);
+//			queryForStudent(studentDAO);
+
+			updateStudent(studentDAO);
 
 
 		};
+	}
+
+	private void updateStudent(StudentDAO studentDAO) {
+		// retrieve student based on id: primary key
+		int studentId = 1;
+		System.out.println(studentId);
+		Student myStudent = studentDAO.findById(studentId);
+
+		// change the name
+		myStudent.setFirstName("Gita");
+
+		// update
+		studentDAO.update(myStudent);
+		//display
+		System.out.println(myStudent);
 	}
 
 	private void queryForStudent(StudentDAO studentDAO) {
