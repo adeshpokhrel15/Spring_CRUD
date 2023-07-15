@@ -30,10 +30,18 @@ public class DemoApplication {
 
 //			queryForStudent(studentDAO);
 
-			updateStudent(studentDAO);
+//			updateStudent(studentDAO);
+
+			deleteStudent(studentDAO);
 
 
 		};
+	}
+
+	private void deleteStudent(StudentDAO studentDAO) {
+		int studentId = 2;
+
+		studentDAO.delete(studentId);
 	}
 
 	private void updateStudent(StudentDAO studentDAO) {
